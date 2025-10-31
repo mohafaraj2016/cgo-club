@@ -30,7 +30,7 @@ export default function App() {
               className="brand-logo"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
             />
-            <div className="brand-text">CGO Club</div>
+            <div className="brand-text">{t(lang, 'brand')}</div>
             <span className="badge">Private</span>
           </Link>
 
@@ -50,7 +50,7 @@ export default function App() {
           <Route path="/" element={<Home lang={lang} />} />
 
           {/* Players section (FIFA cards) */}
-          <Route path="/players" element={<Players />} />
+          <Route path="/players" element={<Players lang={lang} />} />
         </Routes>
       </main>
     </div>

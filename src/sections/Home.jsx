@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel.jsx'
 
 export default function Home({ lang }) {
@@ -11,7 +12,15 @@ export default function Home({ lang }) {
     stadiumName: 'San Nazario',
     stadiumAddr: '34151 Contovello, Province of Trieste',
     openMap: 'Open in Google Maps',
-    sections: 'Sections'
+    sections: 'Sections',
+    sec_players_title: 'Players',
+    sec_players_desc: 'FIFA-style cards and bios.',
+    sec_matches_title: 'Matches',
+    sec_matches_desc: 'Match log and results.',
+    sec_stats_title: 'Stats',
+    sec_stats_desc: 'Per-player totals (goals, assists, W-D-L).',
+    sec_selection_title: 'Selection',
+    sec_selection_desc: 'Balanced team generator.',
   }
 
   const IT = {
@@ -20,22 +29,29 @@ export default function Home({ lang }) {
     intro1: 'CGO è un club amatoriale focalizzato su fair play, spirito di squadra e crescita partita dopo partita.',
     intro2: 'Organizziamo partite 8-contro-8 e 5-contro-5, teniamo semplici registri e bilanciamo le squadre per un gioco competitivo e divertente.',
     stadiumTitle: 'Stadio',
-    stadiumName: 'San Nazario',         // <- fixed typo
+    stadiumName: 'San Nazario',
     stadiumAddr: '34151 Contovello, Provincia di Trieste',
     openMap: 'Apri in Google Maps',
-    sections: 'Sezioni'
+    sections: 'Sezioni',
+    sec_players_title: 'Giocatori',
+    sec_players_desc: 'Carte stile FIFA e profili.',
+    sec_matches_title: 'Partite',
+    sec_matches_desc: 'Registro partite e risultati.',
+    sec_stats_title: 'Statistiche',
+    sec_stats_desc: 'Totali per giocatore (gol, assist, V-N-P).',
+    sec_selection_title: 'Selezione',
+    sec_selection_desc: 'Generatore di squadre bilanciate.',
   }
 
   const S = lang === 'it' ? IT : EN
 
-  // Put your images in /public/gallery
+  // images must be in public/gallery/
   const images = [
     'gallery/CGO_1.jpeg',
     'gallery/CGO_2.jpeg',
     'gallery/CGO_3.jpeg'
   ]
 
-  // Direct link to Google Maps (clickable)
   const mapsLink =
     'https://www.google.com/maps?q=Campo+Sportivo+San+Nazario,+34151+Contovello,+Trieste'
 
@@ -73,7 +89,7 @@ export default function Home({ lang }) {
           {/* Embedded Google Map */}
           <div className="map-frame">
             <iframe
-              title="San Nazaro Football Field"
+              title="San Nazario Football Field"
               width="100%"
               height="260"
               style={{ border: 0, borderRadius: '12px' }}
@@ -102,25 +118,29 @@ export default function Home({ lang }) {
         </div>
       </div>
 
-      {/* Section cards (like your renewable site) */}
+      {/* Localized section tiles */}
       <div className="sections-grid">
-        <a className="section-card section-players" href="#/players">
-          <div className="h2">Players</div>
-          <p className="p">FIFA-style cards and bios.</p>
+        <Link className="section-card section-players card" to="/players">
+          <div className="h2">{S.sec_players_title}</div>
+          <p className="p">{S.sec_players_desc}</p>
+        </Link>
+
+        {/* These three are placeholders until you add routes */}
+        <a className="section-card section-matches card" href="#/matches">
+          <div className="h2">{S.sec_matches_title}</div>
+          <p className="p">{S.sec_matches_desc}</p>
         </a>
-        <a className="section-card section-matches" href="#/matches">
-          <div className="h2">Matches</div>
-          <p className="p">Match log and results.</p>
+
+        <a className="section-card section-stats card" href="#/stats">
+          <div className="h2">{S.sec_stats_title}</div>
+          <p className="p">{S.sec_stats_desc}</p>
         </a>
-        <a className="section-card section-stats" href="#/stats">
-          <div className="h2">Stats</div>
-          <p className="p">Per-player totals (goals, assists, W-D-L).</p>
+
+        <a className="section-card section-selection card" href="#/selection">
+          <div className="h2">{S.sec_selection_title}</div>
+          <p className="p">{S.sec_selection_desc}</p>
         </a>
-        <a className="section-card section-selection" href="#/selection">
-          <div className="h2">Selection</div>
-          <p className="p">Balanced team generator.</p>
-        </a>
-    </div>
+      </div>
     </section>
   )
 }

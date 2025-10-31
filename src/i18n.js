@@ -23,6 +23,11 @@ export const STRINGS = {
     }
   }
   
+  /**
+   * Translation helper
+   * @param {string} lang - language code ('en' or 'it')
+   * @param {string} key - translation key
+   */
   export function t(lang, key) {
     return (STRINGS[lang] && STRINGS[lang][key]) || STRINGS.en[key] || key
   }

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from '../components/Carousel.jsx'
+import { t } from '../i18n.js'
 
 export default function Home({ lang }) {
+  // Localized page text (intro + tile descriptions)
   const EN = {
     title: 'Welcome to CGO Club',
     subtitle: 'Official private hub for our team.',
@@ -12,14 +14,9 @@ export default function Home({ lang }) {
     stadiumName: 'San Nazario',
     stadiumAddr: '34151 Contovello, Province of Trieste',
     openMap: 'Open in Google Maps',
-    sections: 'Sections',
-    sec_players_title: 'Players',
     sec_players_desc: 'FIFA-style cards and bios.',
-    sec_matches_title: 'Matches',
     sec_matches_desc: 'Match log and results.',
-    sec_stats_title: 'Stats',
-    sec_stats_desc: 'Per-player totals (goals, assists, W-D-L).',
-    sec_selection_title: 'Selection',
+    sec_stats_desc:   'Per-player totals (goals, assists, W-D-L).',
     sec_selection_desc: 'Balanced team generator.',
   }
 
@@ -32,20 +29,15 @@ export default function Home({ lang }) {
     stadiumName: 'San Nazario',
     stadiumAddr: '34151 Contovello, Provincia di Trieste',
     openMap: 'Apri in Google Maps',
-    sections: 'Sezioni',
-    sec_players_title: 'Giocatori',
     sec_players_desc: 'Carte stile FIFA e profili.',
-    sec_matches_title: 'Partite',
     sec_matches_desc: 'Registro partite e risultati.',
-    sec_stats_title: 'Statistiche',
-    sec_stats_desc: 'Totali per giocatore (gol, assist, V-N-P).',
-    sec_selection_title: 'Selezione',
+    sec_stats_desc:   'Totali per giocatore (gol, assist, V-N-P).',
     sec_selection_desc: 'Generatore di squadre bilanciate.',
   }
 
   const S = lang === 'it' ? IT : EN
 
-  // images must be in public/gallery/
+  // images in public/gallery/
   const images = [
     'gallery/CGO_1.jpeg',
     'gallery/CGO_2.jpeg',
@@ -57,7 +49,7 @@ export default function Home({ lang }) {
 
   return (
     <section className="home-layout">
-      {/* Carousel full width */}
+      {/* Carousel */}
       <div className="card" style={{ padding: 12 }}>
         <Carousel images={images} height={360} />
       </div>
@@ -86,7 +78,6 @@ export default function Home({ lang }) {
 
           <div style={{ height: 12 }} />
 
-          {/* Embedded Google Map */}
           <div className="map-frame">
             <iframe
               title="San Nazario Football Field"
@@ -97,7 +88,7 @@ export default function Home({ lang }) {
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2774.1377811544383!2d13.768182476981815!3d45.70331717107847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b6d9b45b804cb%3A0xe1528199a5cd88f7!2sCampo%20Sportivo%20San%20Nazario!5e0!3m2!1sen!2sit!4v1730398515435!5m2!1sen!2sit"
-            ></iframe>
+            />
           </div>
 
           <div style={{ marginTop: 8 }}>
@@ -121,23 +112,22 @@ export default function Home({ lang }) {
       {/* Localized section tiles */}
       <div className="sections-grid">
         <Link className="section-card section-players card" to="/players">
-          <div className="h2">{S.sec_players_title}</div>
+          <div className="h2">{t(lang, 'players')}</div>
           <p className="p">{S.sec_players_desc}</p>
         </Link>
 
-        {/* These three are placeholders until you add routes */}
         <a className="section-card section-matches card" href="#/matches">
-          <div className="h2">{S.sec_matches_title}</div>
+          <div className="h2">{t(lang, 'matches')}</div>
           <p className="p">{S.sec_matches_desc}</p>
         </a>
 
         <a className="section-card section-stats card" href="#/stats">
-          <div className="h2">{S.sec_stats_title}</div>
+          <div className="h2">{t(lang, 'stats')}</div>
           <p className="p">{S.sec_stats_desc}</p>
         </a>
 
         <a className="section-card section-selection card" href="#/selection">
-          <div className="h2">{S.sec_selection_title}</div>
+          <div className="h2">{t(lang, 'selection')}</div>
           <p className="p">{S.sec_selection_desc}</p>
         </a>
       </div>

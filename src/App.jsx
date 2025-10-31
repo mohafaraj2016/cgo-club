@@ -13,7 +13,17 @@ export default function App() {
       <nav className="nav">
         <div className="nav-inner">
           {/* Brand section (logo + text) */}
-          <Link to="/" className="brand" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link
+            to="/"
+            className="brand"
+            style={{
+              textDecoration: 'none',
+              color: 'inherit',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+            }}
+          >
             <img
               src={import.meta.env.BASE_URL + 'cgo-log.png'}
               alt="CGO Club Logo"

@@ -496,3 +496,9 @@
   @media (min-width: 860px) {
     .fifa-name { font-size: 22px; }
   }  
+
+  .brand:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    transition: all 0.15s ease-in-out;
+  }  

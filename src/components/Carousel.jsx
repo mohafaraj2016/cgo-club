@@ -1,5 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
+// Prefix relative asset paths with the correct base (e.g. /cgo-club/)
+const withBase = (p) => {
+  if (!p) return p;
+  if (/^https?:\/\//i.test(p)) return p;     // leave absolute URLs
+  const cleaned = String(p).replace(/^\/+/, ""); // strip any leading '/'
+  return import.meta.env.BASE_URL + cleaned;
+};
+
 export default function Carousel({ images = [], intervalMs = 4000, height = 320 }) {
   const [idx, setIdx] = useState(0);
   const timerRef = useRef(null);
@@ -22,9 +30,11 @@ export default function Carousel({ images = [], intervalMs = 4000, height = 320 
 
   if (!images.length) return null;
 
+  const src = withBase(images[idx]);
+
   return (
     <div className="carousel" style={{ height }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <img src={images[idx]} alt={`slide-${idx}`} className="carousel-img" />
+      <img src={src} alt={`slide-${idx}`} className="carousel-img" />
       {images.length > 1 && (
         <>
           <button className="carousel-btn left" onClick={prev} aria-label="Previous">‹</button>

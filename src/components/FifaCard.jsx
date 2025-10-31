@@ -15,7 +15,7 @@ export default function FifaCard({ p }) {
           <div className="fifa-ovr-mat">APP {safe(p?.presence)}</div>
         </div>
         <div className="fifa-photo">
-          <div className="fifa-photo-ph">CGO</div>
+            <div className="fifa-photo-ph">CGO</div>  {/* ok */}
         </div>
       </div>
 

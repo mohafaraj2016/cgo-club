@@ -30,9 +30,9 @@ export default function Home({ lang }) {
 
   // Put your images in /public/gallery
   const images = [
-    '/gallery/CGO_1.jpeg',
-    '/gallery/CGO_2.jpeg',
-    '/gallery/CGO_3.jpeg'
+    'gallery/CGO_1.jpeg',
+    'gallery/CGO_2.jpeg',
+    'gallery/CGO_3.jpeg'
   ]
 
   // Direct link to Google Maps (clickable)
@@ -94,7 +94,7 @@ export default function Home({ lang }) {
         <div className="card" style={{ display: 'grid', placeItems: 'center' }}>
           <div className="logo" style={{ width: 220, height: 220 }}>
             <img
-              src="/cgo-log.png"
+              src="cgo-log.png"
               alt="CGO crest"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
             />

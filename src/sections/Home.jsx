@@ -94,7 +94,7 @@ export default function Home({ lang }) {
         <div className="card" style={{ display: 'grid', placeItems: 'center' }}>
           <div className="logo" style={{ width: 220, height: 220 }}>
             <img
-              src="cgo-log.png"
+              src={import.meta.env.BASE_URL + 'cgo-log.png'}
               alt="CGO crest"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
             />

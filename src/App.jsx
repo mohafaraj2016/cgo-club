@@ -12,7 +12,7 @@ export default function App() {
       <nav className="nav">
         <div className="nav-inner">
           <div className="brand">
-            <img src="/cgo-log.png" alt="CGO" className="brand-logo" />
+            <img src={import.meta.env.BASE_URL + 'cgo-log.png'} alt="CGO" className="brand-logo" />
             <div className="brand-text">{t(lang, 'brand')}</div>
             <span className="badge">Private</span>
           </div>

@@ -28,9 +28,7 @@ export default function App() {
               src={import.meta.env.BASE_URL + 'cgo-log.png'}
               alt="CGO Club Logo"
               className="brand-logo"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none'
-              }}
+              onError={(e) => { e.currentTarget.style.display = 'none' }}
             />
             <div className="brand-text">{t(lang, 'brand')}</div>
             <span className="badge">Private</span>
@@ -40,12 +38,8 @@ export default function App() {
 
           {/* Language selector */}
           <span className="lang">{t(lang, 'language')}:</span>
-          <button className="btn" onClick={() => setLang('en')}>
-            English
-          </button>
-          <button className="btn" onClick={() => setLang('it')}>
-            Italiano
-          </button>
+          <button className="btn" onClick={() => setLang('en')}>English</button>
+          <button className="btn" onClick={() => setLang('it')}>Italiano</button>
         </div>
       </nav>
 
@@ -55,7 +49,7 @@ export default function App() {
           {/* Home page */}
           <Route path="/" element={<Home lang={lang} />} />
 
-          {/* FIFA-style Players cards (dropdown + gold card) */}
+          {/* Players section (FIFA cards) */}
           <Route path="/players" element={<Players lang={lang} />} />
         </Routes>
       </main>

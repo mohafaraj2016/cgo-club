@@ -2,9 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Responsive & safe-area friendly -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <!-- Nice status-bar color on mobile -->
+    <meta name="theme-color" content="#0b1b33" />
+
     <title>CGO Club</title>
+
+    <!-- (Optional) basic favicon in /public -->
+    <link rel="icon" href="/favicon.ico" />
+    <!-- If you also have a PNG logo in /public -->
+    <!-- <link rel="icon" type="image/png" href="/cgo-log.png" /> -->
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

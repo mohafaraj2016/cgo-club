@@ -430,3 +430,81 @@ body{
   background:rgba(255,255,255,.9); color:#0f172a; font-weight:800; font-size:10px; line-height:1;
   padding:2px 6px; border-radius:8px; margin-top:2px;
 }
+
+/* === MOBILE POLISH (append at end of Styles.css) =================== */
+:root {
+  --bp-phone: 600px;
+  --bp-tablet: 860px;
+}
+
+/* Slightly tighter container on phones */
+@media (max-width: 600px) {
+  .container { padding: 16px 14px; }
+  .nav-inner { padding: 8px 12px; gap: 8px; }
+  .brand-logo { width: 28px; height: 28px; }
+  .brand-text { font-size: 16px; }
+  .btn { font-size: 13px; min-height: 40px; }
+}
+
+/* Stack control rows automatically on narrow screens */
+.controls, .export-row {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .controls > * , .export-row > * { flex: 1 1 100%; }
+}
+
+/* Players page – card + stats stack */
+.player-row { grid-template-columns: 1fr; gap: 16px; }
+
+/* FIFA GOLD card scales to viewport width */
+.fifa-gold { width: min(320px, 92vw); margin-inline: auto; }
+.fifa-face  { height: min(210px, 52vw); }
+.fifa-face img { max-height: min(210px, 52vw); }
+.fifa-name { font-size: clamp(20px, 5vw, 28px); }
+.fifa-stats6 { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 860px) {
+  .fifa-stats6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* Selection page – make selects/inputs full width on phones */
+@media (max-width: 600px) {
+  .card select.btn, .card input.btn { width: 100%; }
+}
+
+/* Half pitch: keep the aspect and shrink on phones */
+.pitch-wrap { background: #0b1b33; }
+.pitch-half { position: relative; width: 100%; padding-top: 62%; }
+@media (max-width: 600px) {
+  .pitch-half { padding-top: 82%; } /* taller on phones for room */
+}
+
+/* Chips (two-line marker: NAME + power) – smaller on phones */
+.chip { width: 46px; height: 46px; }
+.chip-name  { font-size: 11px; }
+.chip-power { font-size: 10px; padding: 2px 6px; }
+
+@media (max-width: 600px) {
+  .chip { width: 40px; height: 40px; }
+  .chip-name  { font-size: 10px; }
+  .chip-power { font-size: 9px; padding: 2px 5px; }
+}
+
+/* Balance bars: readable labels on small screens */
+.balance-bar { height: 22px; font-size: 12px; }
+.balance-bar.thin { height: 16px; }
+@media (max-width: 600px) {
+  .balance-bar { height: 20px; font-size: 11px; }
+}
+
+/* Availability list: keep rows compact but tappable */
+@media (max-width: 600px) {
+  .card label[for] { line-height: 1.2; }
+}
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+.nav {
+  padding-top: calc(8px + env(safe-area-inset-top));
+}
